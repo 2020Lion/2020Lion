@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="一个匿名、温柔、有边界的吐槽树洞，用来写下情绪、浏览共鸣并获得轻量安慰。"
+    />
+    <title>无名树洞｜匿名吐槽网站</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="site-header">
+      <nav class="nav" aria-label="主导航">
+        <a class="brand" href="#top" aria-label="无名树洞首页">
+          <span class="brand-mark">匿</span>
+          <span>无名树洞</span>
+        </a>
+        <div class="nav-links">
+          <a href="#rules">安全规则</a>
+          <a href="#wall">吐槽墙</a>
+          <a href="#compose">我要吐槽</a>
+        </div>
+      </nav>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow">匿名 · 不评判 · 有边界</p>
+          <h1 id="hero-title">把今天不想说出口的委屈，安全地放在这里。</h1>
+          <p class="hero-text">
+            无名树洞是一个匿名吐槽网站原型。你可以写下压力、荒唐经历或小小崩溃，系统会自动生成昵称、过滤敏感词，并把内容保存在本地浏览器中。
+          </p>
+          <div class="hero-actions">
+            <a class="button primary" href="#compose">匿名吐槽</a>
+            <a class="button ghost" href="#wall">看看大家</a>
+          </div>
+        </div>
+        <aside class="mood-card" aria-label="今日情绪面板">
+          <div class="pulse"></div>
+          <p>今日树洞温度</p>
+          <strong>72%</strong>
+          <span>有点累，但还能被理解。</span>
+        </aside>
+      </section>
+
+      <section id="rules" class="rules" aria-labelledby="rules-title">
+        <div>
+          <p class="eyebrow">Community Promise</p>
+          <h2 id="rules-title">让匿名不失控的三条规则</h2>
+        </div>
+        <div class="rule-grid">
+          <article>
+            <span>01</span>
+            <h3>不暴露隐私</h3>
+            <p>不要写真实姓名、电话、住址、公司细节或任何能定位到个人的信息。</p>
+          </article>
+          <article>
+            <span>02</span>
+            <h3>只吐槽，不网暴</h3>
+            <p>可以表达不满，但请避免人身攻击、歧视、威胁或煽动性内容。</p>
+          </article>
+          <article>
+            <span>03</span>
+            <h3>需要帮助时求助真人</h3>
+            <p>如果情绪已经影响安全，请联系可信任的人或当地紧急援助渠道。</p>
+          </article>
+        </div>
+      </section>
+
+      <section id="wall" class="wall-section" aria-labelledby="wall-title">
+        <div class="section-heading">
+          <div>
+            <p class="eyebrow">Anonymous Feed</p>
+            <h2 id="wall-title">匿名吐槽墙</h2>
+          </div>
+          <div class="filters" role="group" aria-label="筛选吐槽分类">
+            <button class="filter active" data-filter="全部">全部</button>
+            <button class="filter" data-filter="工作">工作</button>
+            <button class="filter" data-filter="生活">生活</button>
+            <button class="filter" data-filter="关系">关系</button>
+          </div>
+        </div>
+        <div class="vent-wall" id="ventWall" aria-live="polite"></div>
+      </section>
+
+      <section id="compose" class="compose" aria-labelledby="compose-title">
+        <div class="compose-panel">
+          <p class="eyebrow">Drop A Whisper</p>
+          <h2 id="compose-title">写下你的匿名吐槽</h2>
+          <form id="ventForm">
+            <label for="category">选择分类</label>
+            <select id="category" name="category">
+              <option>工作</option>
+              <option>生活</option>
+              <option>关系</option>
+              <option>学习</option>
+              <option>其他</option>
+            </select>
+
+            <label for="content">吐槽内容</label>
+            <textarea
+              id="content"
+              name="content"
+              maxlength="220"
+              placeholder="例如：今天开会又被临时加需求，我真的只想准点下班……"
+              required
+            ></textarea>
+            <div class="form-meta">
+              <span id="charCount">0 / 220</span>
+              <span>不会上传服务器，仅保存在本地浏览器。</span>
+            </div>
+
+            <button class="button primary full" type="submit">投进树洞</button>
+            <p class="form-status" id="formStatus" role="status"></p>
+          </form>
+        </div>
+        <div class="comfort-panel">
+          <h3>树洞回声</h3>
+          <p id="comfortText">你不需要马上变好。先允许自己觉得累。</p>
+          <button class="button ghost" id="comfortButton" type="button">换一句安慰</button>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <p>© 2026 无名树洞 · 为情绪留一个出口</p>
+      <a href="#top">回到顶部</a>
+    </footer>
+
+    <script src="script.js"></script>
+  </body>
+</html>
